@@ -1,39 +1,39 @@
 # Site
-repository: sproogen/resume-theme
-favicon: images/favicon.ico
+repository: aravindksg/aravindksg.github.io
+#favicon: images/favicon.ico
 
 # Content configuration version
 version: 2
 
 # Personal info
-name: Brett Harris
-title: Senior Network System Administrator
-email: brett.h@email.co.uk
-website: www.github.com/sproogen/resume-theme
+name: Aravind Gopalakrishnan
+title: Staff Graphics Software Engineer
+email: aravindksg [at] gmail [dot] com
+website: https://aravindksg.github.io/
 
 # Dark Mode (true/false/never)
 darkmode: false
 
 # Social links
-twitter_username: facespics
-github_username:  sproogen
+#twitter_username: facespics
+github_username:  aravindksg
 # stackoverflow_username: "00000001"
 # dribbble_username: jekyll
 # facebook_username: jekyll
 # flickr_username: jekyll
-instagram_username: jameswgrant
-linkedin_username: jameswgrant
+#instagram_username: jameswgrant
+linkedin_username: aravindksg
 # xing_username: jekyll
 # pinterest_username: jekyll
-youtube_username: globalmtb
+#youtube_username: globalmtb
 # googleplus_username: +jekyll
 # orcid_username: 0000-0000-0000-0000
 
 # Additional icon links
-additional_links:
-- title: itsgoingto.be
-  icon: fas fa-globe
-  url: https://www.itsgoingto.be
+#additional_links:
+#- title: itsgoingto.be
+#  icon: fas fa-globe
+#  url: https://www.itsgoingto.be
 # - title: another link
 #   icon: font awesome brand icon name (eg. fab fa-twitter) (https://fontawesome.com/icons?d=gallery&m=free)
 #   url: Link url (eg. https://google.com)
@@ -46,74 +46,126 @@ additional_links:
 
 # About Section
 # about_title: About Me
-about_profile_image: images/profile.jpg
+#about_profile_image: images/profile.jpg
 about_content: | # this will include new lines to allow paragraphs
-  Hi, my name's Brett and I'm a senior network system administrator. As well as administrating systems I also have experience making software and web apps. I have worked at a number of companies gaining teamwork and leadership skills.
+  Graphics Software Engineer with 10+ years of experience in HPC, Linux Kernel, GPU programming and HW-SW codesign
 
-  I am most skilled in: <mark>AWS</mark> and <mark>Eating Pizza</mark>
+  I am most skilled in: <mark>Graphics Software, High Performance Computing</mark> and <mark>Eating Pani Puris</mark>
 
 content:
-  - title: Projects # Title for the section
-    layout: list # Type of content section (list/text)
-    content:
-      - layout: top-middle
-        title: Super awesome project
-        link: github.com/sproogen
-        # link_text: Project Website
-        additional_links:
-          - title:  sproogen/modern-resume-theme
-            icon: fab fa-github
-            url: github.com/sproogen/modern-resume-theme
-          # - title:  Github page for project (eg. sproogen/modern-resume-theme)
-          #   icon: fab fa-github
-          #   url: Link to project (eg. sproogen.github.io/modern-resume-theme)
-        quote: >
-          This is probably one of the greatest apps ever created, if you don't agree you're probably wrong.
-        description: | # this will include new lines to allow paragraphs
-          I started this project as a way if learning <mark>React</mark> and it has since grown into a fully fledged app. I have learned many skills through this and been I'm very proud of having this in my portfolio. If you don't have a project as awesome as this I would advise you make one.
-
   - title: Experience # Title for the section
     layout: list # Type of content section (list/text)
     content:
       - layout: left
-        title: The Boring Company
-        link: boringcompany.com
+        title: Intel Corporation
         # link_text: boringcompany.com
-        sub_title: Senior Network System Administrator
-        caption: November 2017 - Present
+        sub_title: Staff Graphics Software Engineer/Senior Software Engineer (HPC Networking)
+        caption: March 2016 - Present
         quote: >
-          Solving 21st century problems by diging holes and making game changing products like the *not a flamethrower*
+          Technical leadership of Intel\R oneAPI LevelZero Graphics runtime library: Broad scope of work including contributions to LevelZero runtime, specifications, system management, public documentations and product execution.
         description: | # this will include new lines to allow paragraphs
-            Every company needs its networks properly administered and The Boring Compay is no exception. Digging holes is hard and I play my part making sure the whole company stays connected. I lead a team of 5 people and enjoy driving the company to try new technologies.
+          Staff Graphics SW Engineer
+          --------------------------
+
+          - Design and execute graphics runtime interoperability solution for Intel\R GPUs with SYCL, Vulkan, DX12: execution of complex solutions for inter-API resource interoperability and synchronization with zero host overhead used in Blender, Maxon and OIDN for Windows and Linux.       
+          - Redesigned from ground up IPC mechanisms for LevelZero runtime library to support multiple devices and multiple processes.
+          - Optimized Runtime library that improved GPU submission latency by 4x
+          - Led efforts to enable LevelZero runtime to achieve Argonne National Lab's Aurora supercomputer performance goals. This included efforts to improve E2E performance of workloads such as HPL, LAMMPS, QMCPack, HACC, Nekboke.
+          
+          Senior Software Engineer (HPC Networking)
+          -----------------------------------------
+          - Efficient multi-threaded newtork performance in Intel\R OPA enabled HPC cluster: Multiple features added to Open MPI, Libfabric and PSM2 libraries to improve performance by 5x allowing up to 95\% BW utilization. Latency improved by 1.5x.
+          - Developed framework for full \(100\%\) utilization of Intel\R OPA multiple devices deployed in HPC clusters.
+          - Developed process placement algorithms to improve communication patterns when multiple processes are used to drive network traffic. This improved performance for both small and large message sizes with up to 50\% BW improvement and 30\% latency improvement.
+
+      - layout: left
+        title: Advanced Micro Devices
+        sub_title: Senior Software Engineer
+        caption: August 2012 - Feb 2016
+        quote: >
+          Develop and maintain critical AMD server CPU features in Linux Kernel and Hypervisor along with a short stint in Graphics team at AMD.
+        description: | # this will include new lines to allow paragraphs
+          - Develop AMD CPU SW features in Linux kernel: Maintainer for RAS, EDAC, MCA, hwmon, microcode driver modules.
+          - Enable and maintain AMD Xen hypervisor(SVM) modules: Maintainer for microcode and MCA (Machine Check Architecture) in Xen.
+          - AMD representative in Xen Working Group: a community initiative to provide infrastructure and capabilities for testing of Xen hypervisor.
+          - GPU implementations of primitive algorithms (RMQ) used in compression schemes such as bzip2 and 7zip using OpenCL.
+
+      - layout: left
+        title: Ohio Supercomputer Center
+        sub_title: Programmer
+        caption: Jan - Jun 2012
+        quote: >
+          Research and development of network tools for HPC clusters.
+        description: | # this will include new lines to allow paragraphs
+          - Developed a semantic scheduling policy in perfSONAR using Perl to schedule network performance monitoring tools on nodes in the research network infrastructure.
+          - Deployed integrated perfSONAR services to FNAL as experimental tool.
+          - Designed a federated and peer\=/to\=/peer security framework for E\=/perfsonar using Shibboleth project and Kerberos.
+
+      - layout: left
+        title: Ohio State University
+        sub_title: Graduate Research Associate
+        caption: Jul - Sep 2011
+        quote: >
+          Research and development of parallel programming algorithms in CUDA.
+        description: | # this will include new lines to allow paragraphs
+          - Developed a collection of BLAS (Basic Linear Algebra Subprogram) routines on the GPU using CUDA programming model for benchmarking HW capabilities.
+
+  - title: Publications
+    layout: list # Type of content section (list/text)
+    content:
+      - layout: top-middle
+        description: | # this will include new lines to allow paragraphs
+         - Improved MPI Multi-threaded performance using OFI Scalable Endpoints (HOTI 26)
+         - HPC Process and Optimal Network Device Affinitization (TMSCS Journal edition)
+         - MPI Process and Network Device Affinitization for Optimal HPC Application Performance (HOTI 25)
+        #link: github.com/sproogen
+        # link_text: Project Website
+        #additional_links:
+        #  - title:  sproogen/modern-resume-theme
+        #    icon: fab fa-github
+        #    url: github.com/sproogen/modern-resume-theme
+          # - title:  Github page for project (eg. sproogen/modern-resume-theme)
+          #   icon: fab fa-github
+          #   url: Link to project (eg. sproogen.github.io/modern-resume-theme)
+        #quote: >
+        #  This is probably one of the greatest apps ever created, if you don't agree you're probably wrong.
+        #description: | # this will include new lines to allow paragraphs
+        #  I started this project as a way if learning <mark>React</mark> and it has since grown into a fully fledged app. I have learned many skills through this and been I'm very proud of having this in my portfolio. If you don't have a project as awesome as this I would advise you make one.
 
   - title: Education # Title for the section
     layout: list # Type of content section (list/text)
     content:
       - layout: left
-        title: Harvard University
-        caption: 2010 - 2013
-        sub_title: BSc Computer Science
-        quote: >
-          Established in 1636, Harvard is the oldest higher education institution in the United States, and is widely regarded in terms of its influence, reputation, and academic pedigree as a leading university in not just the US but also the world.
+        title: Ohio State University, Columbus, OH
+        caption: 2012
+        sub_title: MS Computer Science
         description: | # this will include new lines to allow paragraphs
-          During my time at Harvard I learnt most of my key skills that have I have taken through my career such as teamwork and working to tight deadlines. I thouroughly enjoyed my time as university and learnt a lot about a healthy work life balance.
+          - GPA: 3.5/4
+          - Thesis: ""
+      - layout: left
+        title: Anna University, India.
+        caption: 2010
+        sub_title: B.Tech Indformation Technology
+        description: | # this will include new lines to allow paragraphs
+          - Graduated top 15% of department
 
-          I spent a lot of my free time as a committee member of the *Harvard Mountaineering Club* taking on roles such as *Trip Secretary* and *Vice-President*.
+  - title: Skills
+    layout: list # Type of content section (list/text)
+    content:
+      - layout: top-middle
+        description: | # this will include new lines to allow paragraphs
+          *Programming:* C++, C, Python, Perl, CUDA, OpenCL, OpenMP, MPI, Vulkan, Bash
 
-  - title: A Little More About Me
-    layout: text
-    content: | # this will include new lines to allow paragraphs
-      Alongside my interests in networks and software engineering some of my other interests and hobbies are:
-      - Rock climbing
-      - Gaming
-      - Knitting
-      - [Becoming a ninja](https://www.youtube.com/watch?v=vtg4o__aRMg)
+          *Tags:* Linux Kernel, Hypervisor, Open Source, HPC, GPU programming, System Management, Performance Tuning
 
-      Look at this cool image  
-      ![Trees](/modern-resume-theme/images/landscape-trees.jpg "Trees")
+          *Tools:* Git, JIRA
+
+          *Languages:* English, Tamil
+
+          *Miscellaneous:* Photography
 
 # Footer
-footer_show_references: true
+footer_show_references: false 
 # references_title: References on request (Override references text)
 
 # Build settings
@@ -125,3 +177,16 @@ sass:
 
 plugins:
  - jekyll-seo-tag
+
+exclude : [
+  "Gemfile",
+  "Gemfile.lock",
+  "node_modules",
+  "vendor/bundle/",
+  "vendor/cache/",
+  "vendor/gems/",
+  "vendor/ruby/",
+  "lib/",
+  "scripts/",
+  "docker-compose.yml",
+  ]
