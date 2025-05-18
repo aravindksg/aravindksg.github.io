@@ -1,6 +1,6 @@
 # Site
 repository: aravindksg/aravindksg.github.io
-#favicon: images/favicon.ico
+favicon: images/favicon.ico
 
 # Content configuration version
 version: 2
@@ -78,6 +78,8 @@ content:
           - Developed framework for full \(100\%\) utilization of Intel\R OPA multiple devices deployed in HPC clusters.
           - Developed process placement algorithms to improve communication patterns when multiple processes are used to drive network traffic. This improved performance for both small and large message sizes with up to 50\% BW improvement and 30\% latency improvement.
 
+          ---
+
       - layout: left
         title: Advanced Micro Devices
         sub_title: Senior Software Engineer
@@ -90,6 +92,8 @@ content:
           - AMD representative in Xen Working Group: a community initiative to provide infrastructure and capabilities for testing of Xen hypervisor.
           - GPU implementations of primitive algorithms (RMQ) used in compression schemes such as bzip2 and 7zip using OpenCL.
 
+          ---
+
       - layout: left
         title: Ohio Supercomputer Center
         sub_title: Programmer
@@ -100,6 +104,8 @@ content:
           - Developed a semantic scheduling policy in perfSONAR using Perl to schedule network performance monitoring tools on nodes in the research network infrastructure.
           - Deployed integrated perfSONAR services to FNAL as experimental tool.
           - Designed a federated and peer\=/to\=/peer security framework for E\=/perfsonar using Shibboleth project and Kerberos.
+
+          ---
 
       - layout: left
         title: Ohio State University
@@ -114,10 +120,13 @@ content:
     layout: list # Type of content section (list/text)
     content:
       - layout: top-middle
+        link: https://scholar.google.com/citations?hl=en&user=Ii7b57oAAAAJ
+        link_text: Google Scholar
         description: | # this will include new lines to allow paragraphs
          - Improved MPI Multi-threaded performance using OFI Scalable Endpoints (HOTI 26)
          - HPC Process and Optimal Network Device Affinitization (TMSCS Journal edition)
          - MPI Process and Network Device Affinitization for Optimal HPC Application Performance (HOTI 25)
+
         #link: github.com/sproogen
         # link_text: Project Website
         #additional_links:
@@ -140,8 +149,8 @@ content:
         caption: 2012
         sub_title: MS Computer Science
         description: | # this will include new lines to allow paragraphs
-          - GPA: 3.5/4
-          - Thesis: ""
+          - *GPA: 3.5/4*
+          - Thesis: "Network and Middleware Security for Enterprise Network Monitoring"
       - layout: left
         title: Anna University, India.
         caption: 2010
