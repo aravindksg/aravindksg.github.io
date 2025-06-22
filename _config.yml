@@ -46,7 +46,7 @@ linkedin_username: aravind-gopalakrishnan-4ab5493a
 
 # About Section
 # about_title: About Me
-#about_profile_image: images/profile.jpg
+about_profile_image: images/ag_profile.png
 about_content: | # this will include new lines to allow paragraphs
   Graphics Software Engineer with 10+ years of experience in HPC, Linux Kernel, GPU programming and HW-SW codesign
 
