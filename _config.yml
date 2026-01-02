@@ -146,14 +146,14 @@ content:
     content:
       - layout: left
         title: Ohio State University, Columbus, OH
-        caption: 2012
+        #caption: 
         sub_title: MS Computer Science
         description: | # this will include new lines to allow paragraphs
           - *GPA: 3.5/4*
           - Thesis: "Network and Middleware Security for Enterprise Network Monitoring"
       - layout: left
         title: Anna University, India.
-        caption: 2010
+        #caption: 
         sub_title: B.Tech Indformation Technology
         description: | # this will include new lines to allow paragraphs
           - Graduated top 15% of department
@@ -163,7 +163,7 @@ content:
     content:
       - layout: top-middle
         description: | # this will include new lines to allow paragraphs
-          *Programming:* C++, C, Python, Perl, CUDA, OpenCL, OpenMP, MPI, Vulkan, Bash
+          *Programming:* C++, C, Python, CUDA, OpenCL, OpenMP, MPI, Vulkan, Zsh, Bash, Perl
 
           *Tags:* Linux Kernel, Hypervisor, Open Source, HPC, GPU programming, System Management, Performance Tuning
 
