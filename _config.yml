@@ -65,4 +65,5 @@ exclude: [
   "vendor/",
   "node_modules/",
   "accomplishments/",
+  "tools/",
   ]

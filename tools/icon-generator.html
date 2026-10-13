@@ -1,0 +1,106 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>icon generator</title>
+<style>body{background:#111;color:#eee;font:13px system-ui;padding:16px}canvas{margin:8px;background:#222;vertical-align:top}</style>
+<div id="out"></div>
+<script>
+const BG   = '#0A0B14';
+const GOLD = '#F0B429';
+const VERM = '#F2653D';
+const IND  = '#818CF8';
+const TEAL = '#2DD4BF';
+
+// Level of detail by size: tiny icons keep only the package + bindu.
+function drawIcon(cv, S){
+  const ctx = cv.getContext('2d');
+  cv.width = cv.height = S;
+  const c = S/2, u = S/2;
+  const detail = S >= 64 ? 2 : S >= 32 ? 1 : 0;
+
+  ctx.fillStyle = BG; ctx.fillRect(0,0,S,S);
+
+  const lw = Math.max(1, S*0.028);          // one stroke weight everywhere
+  ctx.lineJoin = ctx.lineCap = 'round';
+
+  // outer rank of cluster nodes — only where they can be seen
+  if (detail === 2){
+    const r = u*0.80, n = 8, s = S*0.055;
+    ctx.fillStyle = TEAL; ctx.globalAlpha = .9;
+    for (let i=0;i<n;i++){
+      const a = (i/n)*Math.PI*2 + Math.PI/8;
+      const x = c+Math.cos(a)*r, y = c+Math.sin(a)*r;
+      ctx.fillRect(x-s/2, y-s/2, s, s);
+    }
+    ctx.globalAlpha = .45; ctx.strokeStyle = GOLD; ctx.lineWidth = lw*0.5;
+    for (let i=0;i<n;i++){                                  // interconnect traces
+      const a = (i/n)*Math.PI*2 + Math.PI/8;
+      ctx.beginPath();
+      ctx.moveTo(c+Math.cos(a)*u*0.46, c+Math.sin(a)*u*0.46);
+      ctx.lineTo(c+Math.cos(a)*(r-S*0.045), c+Math.sin(a)*(r-S*0.045));
+      ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  // the package
+  const d = detail === 0 ? u*1.12 : u*0.90;
+  ctx.strokeStyle = GOLD; ctx.lineWidth = lw;
+  ctx.strokeRect(c-d/2, c-d/2, d, d);
+
+  // pads
+  if (detail >= 1){
+    ctx.lineWidth = lw*0.75; ctx.globalAlpha = .85;
+    const e = S*0.055;
+    for (const o of [-d/4, 0, d/4]){
+      ctx.beginPath(); ctx.moveTo(c+o, c-d/2); ctx.lineTo(c+o, c-d/2-e); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(c+o, c+d/2); ctx.lineTo(c+o, c+d/2+e); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(c-d/2, c+o); ctx.lineTo(c-d/2-e, c+o); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(c+d/2, c+o); ctx.lineTo(c+d/2+e, c+o); ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  // interlocking triangles — the yantra, only when they resolve
+  if (detail >= 1){
+    // nested, not mirrored: the downward triangle is inset so the pair
+    // reads as a yantra rather than a symmetric six-pointed star
+    const w = detail === 2 ? lw*0.85 : lw*0.7;
+    const tri = (rad, rot, col) => {
+      ctx.save(); ctx.translate(c,c); ctx.rotate(rot);
+      ctx.strokeStyle = col; ctx.lineWidth = w;
+      ctx.beginPath();
+      for (let i=0;i<3;i++){
+        const a = -Math.PI/2 + i*2*Math.PI/3;
+        i ? ctx.lineTo(Math.cos(a)*rad, Math.sin(a)*rad)
+          : ctx.moveTo(Math.cos(a)*rad, Math.sin(a)*rad);
+      }
+      ctx.closePath(); ctx.stroke(); ctx.restore();
+    };
+    tri(d*0.46, 0, VERM);
+    tri(d*0.28, Math.PI, IND);
+  }
+
+  // bindu
+  const br = detail === 0 ? S*0.15 : S*0.055;
+  const g = ctx.createRadialGradient(c,c,0,c,c,br*3.2);
+  g.addColorStop(0, GOLD); g.addColorStop(1, 'rgba(240,180,41,0)');
+  ctx.fillStyle = g; ctx.globalAlpha = .55;
+  ctx.beginPath(); ctx.arc(c,c,br*3.2,0,6.2832); ctx.fill();
+  ctx.globalAlpha = 1;
+  ctx.fillStyle = VERM;
+  ctx.beginPath(); ctx.arc(c,c,br,0,6.2832); ctx.fill();
+}
+
+const SIZES = [16,32,48,180,192,512];
+window.ICONS = {};
+const out = document.getElementById('out');
+for (const S of SIZES){
+  const cv = document.createElement('canvas');
+  drawIcon(cv, S);
+  cv.style.width = Math.min(S,256)+'px'; cv.style.height = Math.min(S,256)+'px';
+  cv.style.imageRendering = S<=48 ? 'pixelated' : 'auto';
+  out.appendChild(cv);
+  window.ICONS[S] = cv.toDataURL('image/png').split(',')[1];
+}
+document.title = 'icons ready';
+</script>
