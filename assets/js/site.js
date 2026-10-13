@@ -22,14 +22,16 @@ function select(i){
   panel.classList.remove('swap'); void panel.offsetWidth; panel.classList.add('swap');
   panel.innerHTML=`
     <div>
-      <span class="era" data-era="${d.era}">${d.era==='a'?'HPC Fabrics & MPI':'GPU Compute'}</span>
       <h3>${d.t}</h3>
       <ul>${d.b.map(x=>`<li>${x}</li>`).join('')}</ul>
     </div>
     <aside class="sidecard">
       <div class="big">${d.big}</div>
-      <div class="cap">${d.cap}</div>
-      <div class="stack">${d.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+      ${d.cap ? `<div class="cap">${d.cap}</div>` : ''}
+      <div class="stack">
+        <span class="era" data-era="${d.era}">${d.era==='a'?'HPC Fabrics &amp; MPI':'GPU Compute'}</span>
+        ${d.tags.map(t=>`<span class="tag">${t}</span>`).join('')}
+      </div>
     </aside>`;
   scrub.children[i].scrollIntoView({block:'nearest',inline:'nearest',behavior:'smooth'});
 }

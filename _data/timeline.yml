@@ -90,8 +90,8 @@
 - y: "2026"
   era: b
   t: Product execution leadership
-  big: "4 releases"
-  cap: XPU Manager 2.x, June to October, monthly
+  big: "XPUM 2.x"
+  cap: product execution
   tags: [XPU Manager, Intel MPI, Level Zero, UAL]
   b:
     - "Took on three products at once — XPU Manager, Intel MPI and the Level Zero driver — plus the Ultra Accelerator Link pod controller."
