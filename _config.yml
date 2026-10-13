@@ -1,6 +1,6 @@
 # Site
 repository: aravindksg/aravindksg.github.io
-icon_v: 2
+icon_v: 3
 favicon: /favicon.ico   # also served from the root, where browsers look by default
 
 # Personal info — used in the top bar, footer, SEO tags and JSON-LD
