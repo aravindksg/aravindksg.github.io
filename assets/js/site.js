@@ -99,6 +99,21 @@ const MOTION = matchMedia('(prefers-reduced-motion: no-preference)').matches;
 const RINGS=[{r:0.52,n:8,s:7.5},{r:0.72,n:16,s:6},{r:0.92,n:24,s:4.5}];
 let W=0,H=0,CX=0,CY=0,U=1,t=0,nodes=[],C={};
 
+/* Two rendering models for one drawing: on dark it is light emitted from
+   the core (additive, low alphas, glow); on light it is ink printed on
+   paper (multiply, heavier strokes, no glow). INK holds the weights. */
+const INK = {
+  dark:  {glow:.10, ring:.85, trace:.13, traceLit:.50, wave:.32, waveOp:'lighter',
+          node:.45, nodeLit:.55, halo:.35, lotusA:.45, lotusB:.30, dieFill:.10,
+          dieEdge:.95, grid:.45, pad:.70, triA:.90, triB:.80, triC:.65,
+          bindu:.55, lw:1},
+  light: {glow:.06, ring:1,   trace:.34, traceLit:.55, wave:.42, waveOp:'multiply',
+          node:.85, nodeLit:.15, halo:.45, lotusA:.75, lotusB:.50, dieFill:.07,
+          dieEdge:1,   grid:.70, pad:.95, triA:1,   triB:.95, triC:.85,
+          bindu:.40, lw:1.25}
+};
+let K = INK.dark;
+
 function readTokens(){
   const s=getComputedStyle(document.documentElement);
   C.gold=s.getPropertyValue('--gold').trim()||'#F0B429';
@@ -106,6 +121,9 @@ function readTokens(){
   C.acc=s.getPropertyValue('--accent').trim()||'#2DD4BF';
   C.acc2=s.getPropertyValue('--accent-2').trim()||'#818CF8';
   C.line=s.getPropertyValue('--line').trim()||'#272B44';
+  const set=document.documentElement.dataset.theme;
+  const dark = set ? set==='dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  K = dark ? INK.dark : INK.light;
   if(!MOTION) frame(0);
 }
 function size(){
@@ -170,12 +188,14 @@ function frame(time){
   /* ambient glow from the core */
   const g=ctx.createRadialGradient(CX,CY,0,CX,CY,U);
   g.addColorStop(0,C.gold); g.addColorStop(1,'transparent');
-  ctx.globalAlpha=0.10; ctx.fillStyle=g; ctx.fillRect(0,0,W,H); ctx.globalAlpha=1;
+  ctx.globalCompositeOperation=K.waveOp;
+  ctx.globalAlpha=K.glow; ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
+  ctx.globalCompositeOperation='source-over'; ctx.globalAlpha=1;
 
   /* concentric rank circles */
   RINGS.forEach(ring=>{
     ctx.beginPath(); ctx.arc(CX,CY,ring.r*U,0,6.2832);
-    ctx.strokeStyle=C.line; ctx.globalAlpha=0.85; ctx.lineWidth=1; ctx.stroke();
+    ctx.strokeStyle=C.line; ctx.globalAlpha=K.ring; ctx.lineWidth=K.lw; ctx.stroke();
   });
   ctx.globalAlpha=1;
 
@@ -185,13 +205,13 @@ function frame(time){
     ctx.beginPath();
     ctx.moveTo(CX+Math.cos(n.a)*dieR*1.05, CY+Math.sin(n.a)*dieR*1.05);
     ctx.lineTo(x,y);
-    ctx.strokeStyle=C.gold; ctx.globalAlpha=0.13+n.lit*0.5; ctx.lineWidth=1; ctx.stroke();
+    ctx.strokeStyle=C.gold; ctx.globalAlpha=K.trace+n.lit*K.traceLit; ctx.lineWidth=K.lw; ctx.stroke();
   });
   ctx.globalAlpha=1;
 
   /* dispatch waves leaving the core — soft bands, one heartbeat each */
   const WAVES=2, period=7.2, band=U*0.11;
-  ctx.globalCompositeOperation='lighter';
+  ctx.globalCompositeOperation=K.waveOp;
   for(let w=0;w<WAVES;w++){
     const p=((t/period)+w/WAVES)%1;
     const r=dieR + p*(U*0.98-dieR);
@@ -201,7 +221,7 @@ function frame(time){
     g2.addColorStop(1,'transparent');
     ctx.fillStyle=g2;
     /* fade in off the die, out at the rim, so the core never blooms */
-    ctx.globalAlpha=0.32*Math.pow(1-p,1.7)*Math.min(1,0.18+p*2.4);
+    ctx.globalAlpha=K.wave*Math.pow(1-p,1.7)*Math.min(1,0.18+p*2.4);
     ctx.beginPath(); ctx.arc(CX,CY,r+band,0,6.2832); ctx.fill();
     nodes.forEach(n=>{ if(Math.abs(n.r-r)<band*0.5) n.lit=1; });
   }
@@ -212,33 +232,33 @@ function frame(time){
   nodes.forEach(n=>{
     const x=CX+Math.cos(n.a)*n.r, y=CY+Math.sin(n.a)*n.r;
     const col = n.lit>0.25 ? C.acc : C.gold;
-    chip(x,y,n.size*(1+n.lit*0.3),n.a,col,0.45+n.lit*0.55,n.lit>0.5);
+    chip(x,y,n.size*(1+n.lit*0.3),n.a,col,K.node+n.lit*K.nodeLit,n.lit>0.5);
     if(n.lit>0.02){
       ctx.beginPath(); ctx.arc(x,y,n.size*1.9,0,6.2832);
-      ctx.strokeStyle=C.acc; ctx.globalAlpha=n.lit*0.35; ctx.lineWidth=1; ctx.stroke();
+      ctx.strokeStyle=C.acc; ctx.globalAlpha=n.lit*K.halo; ctx.lineWidth=K.lw; ctx.stroke();
     }
     n.lit*=0.962;
   });
   ctx.globalAlpha=1;
 
   /* lotus rings around the package */
-  lotus(dieR*1.62, 12,  t*0.05, C.gold, 0.45);
-  lotus(dieR*1.34, 24, -t*0.08, C.verm, 0.3);
+  lotus(dieR*1.62, 12,  t*0.05, C.gold, K.lotusA);
+  lotus(dieR*1.34, 24, -t*0.08, C.verm, K.lotusB);
 
   /* the die: floorplan inside a square package, corner notch for pin 1 */
   const d=dieR*1.14;
   ctx.save(); ctx.translate(CX,CY);
-  ctx.fillStyle=C.acc2; ctx.globalAlpha=0.1; ctx.fillRect(-d/2,-d/2,d,d);
-  ctx.strokeStyle=C.gold; ctx.globalAlpha=0.95; ctx.lineWidth=2;
+  ctx.fillStyle=C.acc2; ctx.globalAlpha=K.dieFill; ctx.fillRect(-d/2,-d/2,d,d);
+  ctx.strokeStyle=C.gold; ctx.globalAlpha=K.dieEdge; ctx.lineWidth=2;
   ctx.strokeRect(-d/2,-d/2,d,d);
-  ctx.globalAlpha=0.45; ctx.lineWidth=1;              /* floorplan: 4×4 tiles */
+  ctx.globalAlpha=K.grid; ctx.lineWidth=K.lw;         /* floorplan: 4×4 tiles */
   for(let i=1;i<4;i++){
     ctx.beginPath(); ctx.moveTo(-d/2+i*d/4,-d/2); ctx.lineTo(-d/2+i*d/4,d/2); ctx.stroke();
     ctx.beginPath(); ctx.moveTo(-d/2,-d/2+i*d/4); ctx.lineTo(d/2,-d/2+i*d/4); ctx.stroke();
   }
   ctx.globalAlpha=0.9; ctx.lineWidth=1.6;             /* pin-1 notch */
   ctx.beginPath(); ctx.moveTo(-d/2,-d/2+d*0.16); ctx.lineTo(-d/2+d*0.16,-d/2); ctx.stroke();
-  ctx.globalAlpha=0.7; ctx.lineWidth=1;               /* package pads */
+  ctx.globalAlpha=K.pad; ctx.lineWidth=K.lw;          /* package pads */
   for(let i=1;i<4;i++){
     const o=-d/2+i*d/4, e=d*0.09;
     ctx.beginPath(); ctx.moveTo(o,-d/2); ctx.lineTo(o,-d/2-e); ctx.stroke();
@@ -249,16 +269,16 @@ function frame(time){
   ctx.restore();
 
   /* interlocking triangles — the yantra at the core */
-  tri(dieR*0.72,  0,            C.verm, 0.9,  1.5);
-  tri(dieR*0.72,  Math.PI,      C.acc2, 0.8,  1.5);
-  tri(dieR*0.44,  Math.PI/6,    C.gold, 0.65, 1.2);
-  tri(dieR*0.44, -Math.PI/6+Math.PI, C.gold, 0.65, 1.2);
+  tri(dieR*0.72,  0,            C.verm, K.triA, 1.5);
+  tri(dieR*0.72,  Math.PI,      C.acc2, K.triB, 1.5);
+  tri(dieR*0.44,  Math.PI/6,    C.gold, K.triC, 1.2);
+  tri(dieR*0.44, -Math.PI/6+Math.PI, C.gold, K.triC, 1.2);
 
   /* bindu — the core itself, breathing */
   const pulse=1+Math.sin(t*2*Math.PI/7.2)*0.14;
   const bg2=ctx.createRadialGradient(CX,CY,0,CX,CY,dieR*0.42*pulse);
   bg2.addColorStop(0,C.gold); bg2.addColorStop(1,'transparent');
-  ctx.globalAlpha=0.55; ctx.fillStyle=bg2;
+  ctx.globalAlpha=K.bindu; ctx.fillStyle=bg2;
   ctx.beginPath(); ctx.arc(CX,CY,dieR*0.42*pulse,0,6.2832); ctx.fill();
   ctx.globalAlpha=1; ctx.fillStyle=C.verm;
   ctx.beginPath(); ctx.arc(CX,CY,dieR*0.1,0,6.2832); ctx.fill();
