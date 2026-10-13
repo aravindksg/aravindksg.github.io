@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="{{ site.favicon | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
+  <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+  {% seo %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": {{ site.name | jsonify }},
+    "jobTitle": {{ site.role | jsonify }},
+    "url": {{ site.website | jsonify }},
+    "sameAs": [
+      "https://github.com/{{ site.github_username }}",
+      "https://www.linkedin.com/in/{{ site.linkedin_username }}"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+{% include topbar.html %}
+{% include hero.html %}
+
+<main>
+  {% include timeline.html %}
+  {% include work.html %}
+  {% include publications.html %}
+  {{ content }}
+</main>
+
+{% include footer.html %}
+
+<script>
+  window.SITE = {
+    timeline: {{ site.data.timeline | jsonify }},
+    work:     {{ site.data.work | jsonify }},
+    groups:   {{ site.data.filters | jsonify }}
+  };
+</script>
+<script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# Hero metric strip. `to` is the number counted up to; prefix/suffix frame it.
+- to: 11
+  suffix: " TF"
+  label: HPL on pre-production Ponte Vecchio A0
+- to: 4
+  suffix: "×"
+  label: GPU submission latency cut, to ~6.5&nbsp;µs
+- to: 5
+  suffix: "×"
+  label: MPI bandwidth on Omni-Path, 95% link use
+- to: 600
+  suffix: "+"
+  label: code reviews a year across Compute &amp; Tools
+- to: 8
+  prefix: "~"
+  label: engineers mentored, Level Zero and XPUM

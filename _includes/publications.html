@@ -1,0 +1,15 @@
+<section id="writing" class="wrap reveal">
+  <span class="eyebrow">Publications</span>
+  <h2>Peer-reviewed</h2>
+  <div class="pubs">
+    {% for p in site.data.publications %}
+    <div class="pub">
+      <span class="v">{{ p.venue }}<br>{{ p.date }}</span>
+      <p>{{ p.title }}<br><em>{{ p.journal }}</em></p>
+    </div>
+    {% endfor %}
+  </div>
+  {% if site.scholar_url %}
+  <p class="lede"><a href="{{ site.scholar_url }}">All citations on Google Scholar</a></p>
+  {% endif %}
+</section>

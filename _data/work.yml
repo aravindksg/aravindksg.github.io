@@ -1,0 +1,41 @@
+# Selected work cards. `groups` lists the filter chips a card belongs to —
+# every name used here must also appear in _data/filters.yml.
+- k: Level Zero
+  t: IPC handle redesign
+  p: Rebuilt interprocess memory handles in the Intel compute runtime so multi-process, multi-device sharing works the way CUDA's does.
+  groups: [Level Zero, Leadership]
+
+- k: Level Zero
+  t: Immediate command lists
+  p: Defined the API, drove the optimization to ~6.5 µs submission, then productized it with the OpenMP and SYCL runtimes.
+  groups: [Level Zero, Performance]
+
+- k: Interop
+  t: External semaphores
+  p: Cross-API synchronization for Vulkan and DirectX 12, from spec proposal through merged implementation.
+  groups: [Graphics, Level Zero]
+
+- k: Interop
+  t: DRM modifier specification
+  p: Linux interop design proposed and ratified so tiled and compressed surfaces cross API boundaries intact.
+  groups: [Graphics, Linux]
+
+- k: HPC
+  t: Aurora workload enablement
+  p: "Level Zero work behind Argonne's exascale performance goals: HPL, LAMMPS, QMCPACK, HACC, Nekbone."
+  groups: [Performance, Level Zero]
+
+- k: Fabrics
+  t: OFI scalable endpoints
+  p: Upstream Open MPI, libfabric and PSM2 features taking multi-threaded bandwidth 5× and latency down 1.5×.
+  groups: [Performance, Linux]
+
+- k: Manageability
+  t: XPU Manager 2.0
+  p: Release lead for the cluster-side GPU manageability stack, plus the Ultra Accelerator Link pod controller.
+  groups: [Leadership, Linux]
+
+- k: Kernel
+  t: AMD RAS / EDAC / MCA
+  p: Upstream maintainer for AMD CPU error handling, hwmon and microcode drivers in Linux and the Xen hypervisor.
+  groups: [Linux]

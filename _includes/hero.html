@@ -1,0 +1,31 @@
+<header class="hero">
+  <div class="heroart" aria-hidden="true">
+    <canvas id="yantra"></canvas>
+  </div>
+
+  <div class="wrap hero-in">
+    <div>
+      <span class="status"><span class="dot"></span>{{ site.hero.status }}</span>
+      <h1>{{ site.hero.headline }}<br><span class="grad">{{ site.hero.headline_accent }}</span></h1>
+      <p class="tagline">{{ site.hero.tagline }}</p>
+      <p class="blurb">{{ site.hero.blurb }}</p>
+      <div class="ctas">
+        {% for l in site.hero.links %}
+        <a class="cta{% if l.primary %} primary{% endif %}" href="{{ l.url }}">{{ l.text }}</a>
+        {% endfor %}
+      </div>
+      <span class="artlabel">{{ site.hero.artlabel }}</span>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="metrics" id="metrics">
+      {% for m in site.data.metrics %}
+      <div class="metric">
+        <b data-to="{{ m.to }}"{% if m.prefix %} data-prefix="{{ m.prefix }}"{% endif %}{% if m.suffix %} data-suffix="{{ m.suffix }}"{% endif %}>{{ m.prefix }}{{ m.to }}{{ m.suffix }}</b>
+        <span>{{ m.label }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</header>

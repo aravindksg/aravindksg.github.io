@@ -1,0 +1,13 @@
+# Peer-reviewed work, newest first.
+- venue: HOTI 26
+  date: Aug 2019
+  title: Improved MPI Multi-threaded Performance using OFI Scalable Endpoints
+  journal: IEEE Symposium on High-Performance Interconnects
+- venue: TMSCS
+  date: Apr 2018
+  title: HPC Process and Optimal Network Device Affinitization
+  journal: IEEE Transactions on Multi-Scale Computing Systems
+- venue: HOTI 25
+  date: Aug 2017
+  title: MPI Process and Network Device Affinitization for Optimal HPC Application Performance
+  journal: IEEE Symposium on High-Performance Interconnects

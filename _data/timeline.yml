@@ -1,0 +1,98 @@
+# Career timeline — one entry per year, oldest first.
+# y: label on the scrubber · era: a = HPC fabrics & MPI, b = GPU compute
+# big/cap: the number called out beside the bullets · tags: chips under it
+- y: "2016–19"
+  era: a
+  t: HPC fabrics and MPI
+  big: "5×"
+  cap: MPI bandwidth, 95% link utilization
+  tags: [Open MPI, libfabric, PSM2, Omni-Path]
+  b:
+    - Added OFI scalable endpoints to Open MPI, libfabric and PSM2 — accepted upstream, 5× bandwidth and 1.5× lower latency on multi-threaded runs.
+    - Built multi-device load balancing for full utilization of multiple fabric adapters in a node.
+    - "Process-placement algorithms for device affinity: up to 50% bandwidth and 30% latency gains."
+    - Maintainer and release manager for the MPI, OFI and PSM2 repositories. Three papers published.
+
+- y: "2020"
+  era: b
+  t: HPC enablement on first-generation Xe
+  big: "6 / 8"
+  cap: acceptance workloads enabled on ATS
+  tags: [Level Zero, HPL, LAMMPS, oneAPI]
+  b:
+    - Validated HPL and LAMMPS on Arctic Sound power-on silicon and built the demo; 6 of 8 acceptance workloads enabled.
+    - Implemented event timestamps in Level Zero and drove the v1.0 transition for the oneAPI beta and Gold releases.
+    - Authored workload recipes and tuning guides adopted by the Solutions, Debug and Validation teams.
+    - Wrote the engine-switching latency benchmark that fed future hardware decisions.
+
+- y: "2021"
+  era: b
+  t: The performance go-to
+  big: "11 TF"
+  cap: HPL on Ponte Vecchio A0
+  tags: [PVC, Synchronization, Implicit scaling, Benchmarks]
+  b:
+    - "Best-in-class HPC results on pre-production parts: 11 TFLOPS HPL on PVC A0, 6.15 on B1; executive demos of HPL and LAMMPS."
+    - "Led Level Zero synchronization: device-only events, command-stream optimization, v1.2 timestamp APIs."
+    - Drove immediate command list submission down to ~6.5 µs in prototype.
+    - Found and worked around a missing L3 flush in ATS/DG2 silicon; fixed critical implicit-scaling defects.
+
+- y: "2022"
+  era: b
+  t: Scalability engine and productization
+  big: "4×"
+  cap: submission latency improvement shipped
+  tags: [Immediate lists, CAL, OpenMP, SYCL]
+  b:
+    - Defined the scalability engine API, scoped the effort, built the proof of concept.
+    - Productized immediate command lists with the OpenMP and SYCL runtimes — gains across the HPC suite.
+    - Guided CAL enablement on Level Zero and ran the HACC performance deep dive.
+    - Two invention disclosures; built and taught the team's training on HPC debug and Level Zero memory.
+
+- y: "2023"
+  era: b
+  t: Quality and system management
+  big: "90%"
+  cap: escapes closed, every quarter
+  tags: [Sysman, Spec v1.5+, RAS, Xe driver]
+  b:
+    - Closed 90% of escapes each quarter with new test content; reached 100% v1.5 spec compliance by Q2.
+    - Drove Sysman spec updates for v1.7 and v1.8 with the architects, across components and upcoming products.
+    - Device property updates, RAS module enhancements, Xe driver porting reviews.
+    - Contributed to the oneAPI Optimization Guide.
+
+- y: "2024"
+  era: b
+  t: Interop, end to end
+  big: "500+"
+  cap: code reviews across the year
+  tags: [Vulkan, DX12, SYCL graphs, spdlog]
+  b:
+    - Led implementation, validation and delivery of interop features for oneAPI 2025.0 and 2025.1.
+    - "External semaphores: proposed the Level Zero spec interfaces, got them approved, merged and implemented."
+    - 3-channel support, Vulkan dedicated-allocation removal, and appending regular command lists into immediate lists for SYCL graphs.
+    - Sysman spec updates for v1.10; spdlog enablement in Level Zero.
+
+- y: "2025"
+  era: b
+  t: Architecture ownership and a bigger team
+  big: "600+"
+  cap: reviews a year, ~8 mentees
+  tags: [IPC redesign, NEO, oneCCL, Hiring]
+  b:
+    - Architected the IPC handle redesign in NEO and the external memory import/export extension — parity with the CUDA driver APIs.
+    - Defined memory-free callback APIs that resolved a long-standing oneCCL collectives performance issue.
+    - Delivered external semaphores for Vulkan and DX12; proposed and ratified the Linux DRM modifier interop spec.
+    - Owned priorities, goals and OKRs for Level Zero Core all year, XPUM from Q4. Led hiring for the team.
+
+- y: "2026"
+  era: b
+  t: Release leadership
+  big: "XPUM 2.0"
+  cap: major release, in flight
+  tags: [XPUM, UAL, Cluster SW, Leadership]
+  b:
+    - Planning and executing the XPUM 2.0 major release and the Ultra Accelerator Link pod controller.
+    - Running sprint planning, resourcing and delivery across two teams.
+    - "Leading hiring: sourcing, screening and interviewing against team targets."
+    - In the architecture forums, balancing what ships this quarter against where the stack has to be.

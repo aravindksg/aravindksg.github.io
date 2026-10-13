@@ -1,201 +1,68 @@
 # Site
 repository: aravindksg/aravindksg.github.io
-favicon: images/favicon.ico
+favicon: /images/favicon.ico
 
-# Content configuration version
-version: 2
-
-# Personal info
+# Personal info — used in the top bar, footer, SEO tags and JSON-LD
 name: Aravind Gopalakrishnan
-title: Staff Graphics Software Engineer
+title: Aravind Gopalakrishnan          # page <title> and OG title
+role: Engineering Leader — AI Infrastructure, GPU Compute & Cluster SW
+description: >
+  Engineering leader working on oneAPI Level Zero runtime architecture, GPU manageability,
+  HPC fabrics and MPI, and Linux kernel platform drivers.
 email: aravindksg [at] gmail [dot] com
 website: https://aravindksg.github.io/
+url: https://aravindksg.github.io
+baseurl: ""
+location: Portland, OR
 
-# Dark Mode (true/false/never)
-darkmode: false
-
-# Social links
-#twitter_username: facespics
-github_username:  aravindksg
-# stackoverflow_username: "00000001"
-# dribbble_username: jekyll
-# facebook_username: jekyll
-# flickr_username: jekyll
-#instagram_username: jameswgrant
+# Social
+github_username: aravindksg
 linkedin_username: aravind-gopalakrishnan-4ab5493a
-# xing_username: jekyll
-# pinterest_username: jekyll
-#youtube_username: globalmtb
-# googleplus_username: +jekyll
-# orcid_username: 0000-0000-0000-0000
+scholar_url: https://scholar.google.com/citations?hl=en&user=Ii7b57oAAAAJ
 
-# Additional icon links
-#additional_links:
-#- title: itsgoingto.be
-#  icon: fas fa-globe
-#  url: https://www.itsgoingto.be
-# - title: another link
-#   icon: font awesome brand icon name (eg. fab fa-twitter) (https://fontawesome.com/icons?d=gallery&m=free)
-#   url: Link url (eg. https://google.com)
+# Hero — everything above the metric strip
+hero:
+  status: Now — leading Level Zero Core & XPU Manager at Intel
+  headline: From one die
+  headline_accent: to the whole cluster.
+  tagline: Engineering Leader — AI Infrastructure, GPU Compute & Cluster SW
+  blurb: >
+    Fourteen years on the layer between silicon and the application: oneAPI Level Zero runtime
+    architecture, GPU manageability, HPC fabrics and MPI, Linux kernel platform drivers. I lead the
+    teams that build it, and still design the hard parts.
+  artlabel: one core · three ranks · the whole fabric
+  links:
+    - text: Career timeline
+      url: "#timeline"
+      primary: true
+    - text: Selected work
+      url: "#work"
+    - text: GitHub
+      url: https://github.com/aravindksg
+    - text: LinkedIn
+      url: https://www.linkedin.com/in/aravind-gopalakrishnan-4ab5493a
+    - text: Scholar
+      url: https://scholar.google.com/citations?hl=en&user=Ii7b57oAAAAJ
 
-# Google Analytics and Tag Manager
-# Using more than one of these may cause issues with reporting
-# gtm: "GTM-0000000"
-# gtag: "UA-00000000-0"
-# google_analytics: "UA-00000000-0"
+# Section content lives in _data/: timeline.yml, work.yml, filters.yml,
+# metrics.yml, publications.yml. Edit those, not the includes.
 
-# About Section
-# about_title: About Me
-about_profile_image: images/ag_profile.png
-about_content: | # this will include new lines to allow paragraphs
-  Graphics Software Engineer with 10+ years of experience in HPC, Linux Kernel, GPU programming and HW-SW codesign
-
-  I am most skilled in: <mark>Graphics Software, High Performance Computing</mark> and <mark>Eating Pani Puris</mark>
-
-content:
-  - title: Experience # Title for the section
-    layout: list # Type of content section (list/text)
-    content:
-      - layout: left
-        title: Intel Corporation
-        # link_text: boringcompany.com
-        sub_title: Staff Graphics Software Engineer/Senior Software Engineer (HPC Networking)
-        caption: March 2016 - Present
-        quote: >
-          Technical leadership of Intel\R oneAPI LevelZero Graphics runtime library: Broad scope of work including contributions to LevelZero runtime, specifications, system management, public documentations and product execution.
-        description: | # this will include new lines to allow paragraphs
-          Staff Graphics SW Engineer
-          --------------------------
-
-          - Design and execute graphics runtime interoperability solution for Intel\R GPUs with SYCL, Vulkan, DX12: execution of complex solutions for inter-API resource interoperability and synchronization with zero host overhead used in Blender, Maxon and OIDN for Windows and Linux.       
-          - Redesigned from ground up IPC mechanisms for LevelZero runtime library to support multiple devices and multiple processes.
-          - Optimized Runtime library that improved GPU submission latency by 4x
-          - Led efforts to enable LevelZero runtime to achieve Argonne National Lab's Aurora supercomputer performance goals. This included efforts to improve E2E performance of workloads such as HPL, LAMMPS, QMCPack, HACC, Nekboke.
-          
-          Senior Software Engineer (HPC Networking)
-          -----------------------------------------
-          - Efficient multi-threaded newtork performance in Intel\R OPA enabled HPC cluster: Multiple features added to Open MPI, Libfabric and PSM2 libraries to improve performance by 5x allowing up to 95\% BW utilization. Latency improved by 1.5x.
-          - Developed framework for full \(100\%\) utilization of Intel\R OPA multiple devices deployed in HPC clusters.
-          - Developed process placement algorithms to improve communication patterns when multiple processes are used to drive network traffic. This improved performance for both small and large message sizes with up to 50\% BW improvement and 30\% latency improvement.
-
-          ---
-
-      - layout: left
-        title: Advanced Micro Devices
-        sub_title: Senior Software Engineer
-        caption: August 2012 - Feb 2016
-        quote: >
-          Develop and maintain critical AMD server CPU features in Linux Kernel and Hypervisor along with a short stint in Graphics team at AMD.
-        description: | # this will include new lines to allow paragraphs
-          - Develop AMD CPU SW features in Linux kernel: Maintainer for RAS, EDAC, MCA, hwmon, microcode driver modules.
-          - Enable and maintain AMD Xen hypervisor(SVM) modules: Maintainer for microcode and MCA (Machine Check Architecture) in Xen.
-          - AMD representative in Xen Working Group: a community initiative to provide infrastructure and capabilities for testing of Xen hypervisor.
-          - GPU implementations of primitive algorithms (RMQ) used in compression schemes such as bzip2 and 7zip using OpenCL.
-
-          ---
-
-      - layout: left
-        title: Ohio Supercomputer Center
-        sub_title: Programmer
-        caption: Jan - Jun 2012
-        quote: >
-          Research and development of network tools for HPC clusters.
-        description: | # this will include new lines to allow paragraphs
-          - Developed a semantic scheduling policy in perfSONAR using Perl to schedule network performance monitoring tools on nodes in the research network infrastructure.
-          - Deployed integrated perfSONAR services to FNAL as experimental tool.
-          - Designed a federated and peer\=/to\=/peer security framework for E\=/perfsonar using Shibboleth project and Kerberos.
-
-          ---
-
-      - layout: left
-        title: Ohio State University
-        sub_title: Graduate Research Associate
-        caption: Jul - Sep 2011
-        quote: >
-          Research and development of parallel programming algorithms in CUDA.
-        description: | # this will include new lines to allow paragraphs
-          - Developed a collection of BLAS (Basic Linear Algebra Subprogram) routines on the GPU using CUDA programming model for benchmarking HW capabilities.
-
-  - title: Publications
-    layout: list # Type of content section (list/text)
-    content:
-      - layout: top-middle
-        link: https://scholar.google.com/citations?hl=en&user=Ii7b57oAAAAJ
-        link_text: Google Scholar
-        description: | # this will include new lines to allow paragraphs
-         - Improved MPI Multi-threaded performance using OFI Scalable Endpoints (HOTI 26)
-         - HPC Process and Optimal Network Device Affinitization (TMSCS Journal edition)
-         - MPI Process and Network Device Affinitization for Optimal HPC Application Performance (HOTI 25)
-
-        #link: github.com/sproogen
-        # link_text: Project Website
-        #additional_links:
-        #  - title:  sproogen/modern-resume-theme
-        #    icon: fab fa-github
-        #    url: github.com/sproogen/modern-resume-theme
-          # - title:  Github page for project (eg. sproogen/modern-resume-theme)
-          #   icon: fab fa-github
-          #   url: Link to project (eg. sproogen.github.io/modern-resume-theme)
-        #quote: >
-        #  This is probably one of the greatest apps ever created, if you don't agree you're probably wrong.
-        #description: | # this will include new lines to allow paragraphs
-        #  I started this project as a way if learning <mark>React</mark> and it has since grown into a fully fledged app. I have learned many skills through this and been I'm very proud of having this in my portfolio. If you don't have a project as awesome as this I would advise you make one.
-
-  - title: Education # Title for the section
-    layout: list # Type of content section (list/text)
-    content:
-      - layout: left
-        title: Ohio State University, Columbus, OH
-        #caption: 
-        sub_title: MS Computer Science
-        description: | # this will include new lines to allow paragraphs
-          - *GPA: 3.5/4*
-          - Thesis: "Network and Middleware Security for Enterprise Network Monitoring"
-      - layout: left
-        title: Anna University, India.
-        #caption: 
-        sub_title: B.Tech Indformation Technology
-        description: | # this will include new lines to allow paragraphs
-          - Graduated top 15% of department
-
-  - title: Skills
-    layout: list # Type of content section (list/text)
-    content:
-      - layout: top-middle
-        description: | # this will include new lines to allow paragraphs
-          *Programming:* C++, C, Python, CUDA, OpenCL, OpenMP, MPI, Vulkan, Zsh, Bash, Perl
-
-          *Tags:* Linux Kernel, Hypervisor, Open Source, HPC, GPU programming, System Management, Performance Tuning
-
-          *Tools:* Git, JIRA
-
-          *Languages:* English, Tamil
-
-          *Miscellaneous:* Photography
-
-# Footer
-footer_show_references: false 
-# references_title: References on request (Override references text)
+# Google Analytics / Tag Manager — set one if you want it
+# gtag: "G-0000000000"
 
 # Build settings
-remote_theme: sproogen/resume-theme
-
 sass:
-  sass_dir: _sass
   style: compressed
 
 plugins:
- - jekyll-seo-tag
+  - jekyll-seo-tag
 
-exclude : [
+exclude: [
   "Gemfile",
   "Gemfile.lock",
-  "node_modules",
-  "vendor/bundle/",
-  "vendor/cache/",
-  "vendor/gems/",
-  "vendor/ruby/",
-  "lib/",
-  "scripts/",
-  "docker-compose.yml",
+  "README.md",
+  "LICENSE",
+  "vendor/",
+  "node_modules/",
+  "accomplishments/",
   ]
