@@ -103,11 +103,11 @@ let W=0,H=0,CX=0,CY=0,U=1,t=0,nodes=[],C={};
    the core (additive, low alphas, glow); on light it is ink printed on
    paper (multiply, heavier strokes, no glow). INK holds the weights. */
 const INK = {
-  dark:  {glow:.10, ring:.85, trace:.13, traceLit:.50, wave:.32, waveOp:'lighter',
+  dark:  {glow:.10, ring:.85, ringCol:'line', trace:.13, traceLit:.50, wave:.32, waveOp:'lighter',
           node:.45, nodeLit:.55, halo:.35, lotusA:.45, lotusB:.30, dieFill:.10,
           dieEdge:.95, grid:.45, pad:.70, triA:.90, triB:.80, triC:.65,
           bindu:.55, lw:1},
-  light: {glow:.06, ring:1,   trace:.34, traceLit:.55, wave:.42, waveOp:'multiply',
+  light: {glow:.06, ring:.40, ringCol:'muted', trace:.34, traceLit:.55, wave:.58, waveOp:'multiply',
           node:.85, nodeLit:.15, halo:.45, lotusA:.75, lotusB:.50, dieFill:.07,
           dieEdge:1,   grid:.70, pad:.95, triA:1,   triB:.95, triC:.85,
           bindu:.40, lw:1.25}
@@ -121,6 +121,7 @@ function readTokens(){
   C.acc=s.getPropertyValue('--accent').trim()||'#2DD4BF';
   C.acc2=s.getPropertyValue('--accent-2').trim()||'#818CF8';
   C.line=s.getPropertyValue('--line').trim()||'#272B44';
+  C.muted=s.getPropertyValue('--muted').trim()||'#9A99AE';
   const set=document.documentElement.dataset.theme;
   const dark = set ? set==='dark' : matchMedia('(prefers-color-scheme: dark)').matches;
   K = dark ? INK.dark : INK.light;
@@ -195,7 +196,7 @@ function frame(time){
   /* concentric rank circles */
   RINGS.forEach(ring=>{
     ctx.beginPath(); ctx.arc(CX,CY,ring.r*U,0,6.2832);
-    ctx.strokeStyle=C.line; ctx.globalAlpha=K.ring; ctx.lineWidth=K.lw; ctx.stroke();
+    ctx.strokeStyle=C[K.ringCol]; ctx.globalAlpha=K.ring; ctx.lineWidth=K.lw; ctx.stroke();
   });
   ctx.globalAlpha=1;
 
