@@ -31,9 +31,19 @@
   groups: [Performance, Linux]
 
 - k: Manageability
-  t: XPU Manager 2.0
-  p: Release lead for the cluster-side GPU manageability stack, plus the Ultra Accelerator Link pod controller.
+  t: XPU Manager 2.x
+  p: Own the cluster-side GPU manageability stack — four releases June to October on a monthly cadence, the 2.x API uplift, and docs and mirrors moved into the open.
   groups: [Leadership, Linux]
+
+- k: HPC
+  t: Intel MPI
+  p: Took the team over mid-year and delivered every oneAPI 2026.2 commitment without a drop.
+  groups: [Leadership, Performance]
+
+- k: Cluster
+  t: UAL pod controller
+  p: Planned the Ultra Accelerator Link pod controller end to end — architecture review through a task-level execution plan with validation paths.
+  groups: [Leadership, Performance]
 
 - k: Kernel
   t: AMD RAS / EDAC / MCA

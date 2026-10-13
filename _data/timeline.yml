@@ -9,9 +9,10 @@
   tags: [Open MPI, libfabric, PSM2, Omni-Path]
   b:
     - Added OFI scalable endpoints to Open MPI, libfabric and PSM2 — accepted upstream, 5× bandwidth and 1.5× lower latency on multi-threaded runs.
-    - Built multi-device load balancing for full utilization of multiple fabric adapters in a node.
+    - Dynamic load balancing across multi-card systems using multiple MPI ranks, for full utilization of every fabric adapter in a node.
     - "Process-placement algorithms for device affinity: up to 50% bandwidth and 30% latency gains."
-    - Maintainer and release manager for the MPI, OFI and PSM2 repositories. Three papers published.
+    - Maintainer and release manager for the MPI, OFI and PSM2 repositories; bring-up and support of the fabric interconnect stack, and performance validation of OFI/PSM2 on CUDA.
+    - Two conference papers and a journal paper out of this work — the groundwork for everything from 2020 on.
 
 - y: "2020"
   era: b
@@ -21,9 +22,10 @@
   tags: [Level Zero, HPL, LAMMPS, oneAPI]
   b:
     - Validated HPL and LAMMPS on Arctic Sound power-on silicon and built the demo; 6 of 8 acceptance workloads enabled.
-    - Implemented event timestamps in Level Zero and drove the v1.0 transition for the oneAPI beta and Gold releases.
+    - LAMMPS kernel deep dive and problem-size tuning to fit the part.
+    - Implemented event timestamps in Level Zero, drove the v1.0 transition for the oneAPI beta and Gold releases, and led the work on driver thread safety.
     - Authored workload recipes and tuning guides adopted by the Solutions, Debug and Validation teams.
-    - Wrote the engine-switching latency benchmark that fed future hardware decisions.
+    - Wrote the engine-switching latency benchmark and the ULLS benchmarks that fed future hardware decisions.
 
 - y: "2021"
   era: b
@@ -87,12 +89,14 @@
 
 - y: "2026"
   era: b
-  t: Release leadership
-  big: "XPUM 2.0"
-  cap: major release, in flight
-  tags: [XPUM, UAL, Cluster SW, Leadership]
+  t: Product execution leadership
+  big: "4 releases"
+  cap: XPU Manager 2.x, June to October, monthly
+  tags: [XPU Manager, Intel MPI, Level Zero, UAL]
   b:
-    - Planning and executing the XPUM 2.0 major release and the Ultra Accelerator Link pod controller.
-    - Running sprint planning, resourcing and delivery across two teams.
-    - "Leading hiring: sourcing, screening and interviewing against team targets."
-    - In the architecture forums, balancing what ships this quarter against where the stack has to be.
+    - "Took on three products at once — XPU Manager, Intel MPI and the Level Zero driver — plus the Ultra Accelerator Link pod controller."
+    - Shipped XPU Manager 2.0 through 2.2 on a monthly cadence and branched 2.3, with the process to sustain it — documented code freeze, per-release component validation, hot-fix branching and versioning.
+    - "Drove the 2.x uplift: retired the legacy C APIs and commands, matched the nvidia-smi feature surface, and moved the documentation and repository mirror into the open."
+    - Delivered every oneAPI 2026.2 commitment for Intel MPI with nothing dropped, after taking the team over mid-year and settling it with 1:1s, coaching and a shared sprint rhythm.
+    - "Level Zero: DX11 fence interop merged with tests passing, the remaining interop conformance closed, and native fences on WDDM 3.x scoped."
+    - Planned the pod controller work end to end — every task estimated, sequenced and matched to a validation path — and set the Level Zero Core roadmap for the quarter.

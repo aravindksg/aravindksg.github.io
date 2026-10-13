@@ -22,7 +22,7 @@ scholar_url: https://scholar.google.com/citations?hl=en&user=Ii7b57oAAAAJ
 
 # Hero — everything above the metric strip
 hero:
-  status: Now — leading Level Zero Core & XPU Manager at Intel
+  status: Now — leading XPU Manager, Intel MPI & Level Zero Core at Intel
   headline: From one die
   headline_accent: to the whole cluster.
   tagline: Engineering Leader — AI Infrastructure, GPU Compute & Cluster SW
