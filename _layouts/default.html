@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="{{ site.favicon | relative_url }}" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon-32x32.png' | relative_url }}">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ '/favicon-16x16.png' | relative_url }}">
-  <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
+  {%- comment -%} icon_v busts the browser cache when the mark changes {%- endcomment -%}
+  <link rel="icon" href="{{ site.favicon | relative_url }}?v={{ site.icon_v }}" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon-32x32.png' | relative_url }}?v={{ site.icon_v }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ '/favicon-16x16.png' | relative_url }}?v={{ site.icon_v }}">
+  <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}?v={{ site.icon_v }}">
   <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
   <meta name="theme-color" content="#0A0B14">
 

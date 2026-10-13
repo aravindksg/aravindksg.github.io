@@ -1,14 +1,13 @@
 # Site
 repository: aravindksg/aravindksg.github.io
-favicon: /images/favicon.ico
+icon_v: 2
+favicon: /favicon.ico   # also served from the root, where browsers look by default
 
 # Personal info — used in the top bar, footer, SEO tags and JSON-LD
 name: Aravind Gopalakrishnan
 title: Aravind Gopalakrishnan          # page <title> and OG title
 role: Engineering Leader — AI Infrastructure, GPU Compute & Cluster SW
-description: >
-  Engineering leader working on oneAPI Level Zero runtime architecture, GPU manageability,
-  HPC fabrics and MPI, and Linux kernel platform drivers.
+description: Engineering leader — GPU compute, cluster software and HPC
 email: aravindksg [at] gmail [dot] com
 website: https://aravindksg.github.io/
 url: https://aravindksg.github.io
