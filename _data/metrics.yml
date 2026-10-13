@@ -8,9 +8,10 @@
 - to: 5
   suffix: "×"
   label: MPI bandwidth on Omni-Path, 95% link use
-- to: 600
-  suffix: "+"
-  label: code reviews a year across Compute &amp; Tools
-- to: 8
-  prefix: "~"
-  label: engineers mentored, Level Zero and XPUM
+# Parked until the numbers are refreshed — put them back by uncommenting:
+# - to: 600
+#   suffix: "+"
+#   label: code reviews a year across Compute &amp; Tools
+# - to: 8
+#   prefix: "~"
+#   label: engineers mentored, Level Zero and XPUM
