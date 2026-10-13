@@ -49,7 +49,7 @@
     - Defined the scalability engine API, scoped the effort, built the proof of concept.
     - Productized immediate command lists with the OpenMP and SYCL runtimes — gains across the HPC suite.
     - Guided CAL enablement on Level Zero and ran the HACC performance deep dive.
-    - Two invention disclosures; built and taught the team's training on HPC debug and Level Zero memory.
+    - Built and taught the team's training on HPC debug and Level Zero memory.
 
 - y: "2023"
   era: b
@@ -67,7 +67,7 @@
   era: b
   t: Interop, end to end
   big: "500+"
-  cap: code reviews across the year
+  cap: code contributions across the year
   tags: [Vulkan, DX12, SYCL graphs, spdlog]
   b:
     - Led implementation, validation and delivery of interop features for oneAPI 2025.0 and 2025.1.
@@ -79,24 +79,23 @@
   era: b
   t: Architecture ownership and a bigger team
   big: "600+"
-  cap: reviews a year, ~8 mentees
+  cap: code contributions a year, ~8 mentees
   tags: [IPC redesign, NEO, oneCCL, Hiring]
   b:
     - Architected the IPC handle redesign in NEO and the external memory import/export extension — parity with the CUDA driver APIs.
     - Defined memory-free callback APIs that resolved a long-standing oneCCL collectives performance issue.
     - Delivered external semaphores for Vulkan and DX12; proposed and ratified the Linux DRM modifier interop spec.
-    - Owned priorities, goals and OKRs for Level Zero Core all year, XPUM from Q4. Led hiring for the team.
+    - Owned priorities, goals and OKRs for Level Zero Core all year, XPUM from Q4. Hiring lead for the team.
 
 - y: "2026"
   era: b
   t: Product execution leadership
   big: "XPUM 2.x"
   cap: product execution
-  tags: [XPU Manager, Intel MPI, Level Zero, UAL]
+  tags: [XPU Manager, Intel MPI, Level Zero]
   b:
-    - "Took on three products at once — XPU Manager, Intel MPI and the Level Zero driver — plus the Ultra Accelerator Link pod controller."
-    - Shipped XPU Manager 2.0 through 2.2 on a monthly cadence and branched 2.3, with the process to sustain it — documented code freeze, per-release component validation, hot-fix branching and versioning.
+    - "Took on three products at once: XPU Manager, Intel MPI and the Level Zero driver."
+    - Established the engineering practice XPU Manager had been missing — a monthly release cadence, documented code freeze and branching, per-release component validation, versioning and hot-fix paths — giving the team a repeatable way to ship rather than a one-off push.
     - "Drove the 2.x uplift: retired the legacy C APIs and commands, matched the nvidia-smi feature surface, and moved the documentation and repository mirror into the open."
-    - Delivered every oneAPI 2026.2 commitment for Intel MPI with nothing dropped, after taking the team over mid-year and settling it with 1:1s, coaching and a shared sprint rhythm.
+    - Took ownership of the Intel MPI team and delivered against the oneAPI 2026.2 release commitments.
     - "Level Zero: DX11 fence interop merged with tests passing, the remaining interop conformance closed, and native fences on WDDM 3.x scoped."
-    - Planned the pod controller work end to end — every task estimated, sequenced and matched to a validation path — and set the Level Zero Core roadmap for the quarter.
