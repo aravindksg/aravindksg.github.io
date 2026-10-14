@@ -9,13 +9,20 @@ YEARS.forEach((d,i)=>{
   const b = document.createElement('button');
   b.className='yr'; b.type='button'; b.role='tab'; b.dataset.era=d.era;
   b.textContent=d.y; b.setAttribute('aria-selected', i===idx);
-  b.addEventListener('click',()=>select(i));
+  /* roving tabindex: only the selected year is in the tab order */
+  b.tabIndex = i===idx ? 0 : -1;
+  /* Safari does not focus a button when you click it, so the arrow-key
+     handler below would never see a keypress. Focus it ourselves. */
+  b.addEventListener('click',()=>{ select(i); b.focus(); });
   scrub.appendChild(b);
 });
 
 function select(i){
   idx=i;
-  [...scrub.children].forEach((b,n)=>b.setAttribute('aria-selected', n===i));
+  [...scrub.children].forEach((b,n)=>{
+    b.setAttribute('aria-selected', n===i);
+    b.tabIndex = n===i ? 0 : -1;
+  });
   const d=YEARS[i];
   railfill.style.left=(i/YEARS.length*100)+'%';
   railfill.style.width=(1/YEARS.length*100)+'%';
@@ -36,8 +43,16 @@ function select(i){
   scrub.children[i].scrollIntoView({block:'nearest',inline:'nearest',behavior:'smooth'});
 }
 scrub.addEventListener('keydown',e=>{
-  if(e.key==='ArrowRight'&&idx<YEARS.length-1){select(idx+1);scrub.children[idx].focus();}
-  if(e.key==='ArrowLeft'&&idx>0){select(idx-1);scrub.children[idx].focus();}
+  const last = YEARS.length-1;
+  let to = null;
+  if(e.key==='ArrowRight' || e.key==='ArrowDown') to = Math.min(last, idx+1);
+  else if(e.key==='ArrowLeft' || e.key==='ArrowUp') to = Math.max(0, idx-1);
+  else if(e.key==='Home') to = 0;
+  else if(e.key==='End')  to = last;
+  if(to===null || to===idx) return;
+  e.preventDefault();                 /* arrows would otherwise scroll the row */
+  select(to);
+  scrub.children[to].focus();
 });
 select(idx);
 
