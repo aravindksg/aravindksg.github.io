@@ -1,0 +1,10 @@
+# The three-up strip under the hero. Each entry: the arc, then the evidence.
+- from: Idea
+  to: spec
+  p: Level Zero and Sysman interfaces proposed, carried through the working groups and ratified — IPC handles, external memory, DRM modifiers.
+- from: Concept
+  to: product
+  p: "Interop features carried end to end: spec proposal, implementation, validation, shipped in an oneAPI release."
+- from: Requirements
+  to: release
+  p: XPU Manager on a monthly cadence, with the code freeze, validation and branching practice that keeps it there.

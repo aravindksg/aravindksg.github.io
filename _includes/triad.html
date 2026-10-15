@@ -1,0 +1,10 @@
+<section id="arc" class="wrap reveal">
+  <ol class="triad">
+    {% for t in site.data.triad %}
+    <li>
+      <span class="arc"><b>{{ t.from }}</b><i aria-hidden="true">&rarr;</i>{{ t.to }}</span>
+      <p>{{ t.p }}</p>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
